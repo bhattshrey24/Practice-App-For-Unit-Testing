@@ -1,4 +1,4 @@
-package com.example.practiceappforunittesting.remote.responses
+package com.example.practiceappforunittesting.data.remote.responses
 
 data class ImageResponse(
     val hits: List<ImageResult>, // these are the actual images that we got from API

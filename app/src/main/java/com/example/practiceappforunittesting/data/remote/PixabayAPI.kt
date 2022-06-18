@@ -1,6 +1,6 @@
-package com.example.practiceappforunittesting.remote
+package com.example.practiceappforunittesting.data.remote
 
-import com.example.practiceappforunittesting.remote.responses.ImageResponse
+import com.example.practiceappforunittesting.data.remote.responses.ImageResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

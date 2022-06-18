@@ -1,4 +1,4 @@
-package com.example.practiceappforunittesting.remote.responses
+package com.example.practiceappforunittesting.data.remote.responses
 
 import com.google.gson.annotations.SerializedName
 

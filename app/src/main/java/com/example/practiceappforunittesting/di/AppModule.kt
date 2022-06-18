@@ -1,12 +1,17 @@
 package com.example.practiceappforunittesting.di
 
+import android.content.Context
+import androidx.room.Room
+import com.example.practiceappforunittesting.data.local.ShoppingItemDatabase
 import com.example.practiceappforunittesting.other.Constants
 import com.example.practiceappforunittesting.other.Constants.BASE_URL
-import com.example.practiceappforunittesting.remote.PixabayAPI
+import com.example.practiceappforunittesting.data.remote.PixabayAPI
+import com.example.practiceappforunittesting.other.Constants.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -14,6 +19,17 @@ import javax.inject.Singleton
 @Module
 @InstallIn(ApplicationComponent::class)
 object AppModule {
+    @Singleton
+    @Provides
+    fun provideShoppingItemDatabase(
+        @ApplicationContext context: Context
+    ) = Room.databaseBuilder(context, ShoppingItemDatabase::class.java, DATABASE_NAME).build()
+
+    @Singleton
+    @Provides
+    fun provideShoppingDao(
+        database: ShoppingItemDatabase
+    ) = database.shoppingDao()
 
     @Singleton
     @Provides
